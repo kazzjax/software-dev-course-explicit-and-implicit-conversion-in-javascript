@@ -19,14 +19,28 @@ Use console.log() to clearly show the before-and-after type conversions.
 */
 
 
-let result = "5" - 2;
-console.log("The result is: " + result);
+let result = Number("5") - 2; //this code works correctly as is, but I can also convert the string to a numeric value
+console.log("The result is: " + result);//displays 3
 
-let isValid = Boolean("false");
+
+let isValid = false;//previously had a string of the word false using Boolean() but was still considered truthy due to if(INPUT)
 if (isValid) {
-    console.log("This is valid!");
+    console.log("This is valid!");//does not display
+} else {//added else to display if value is intentionally false
+    console.log("This is invalid")//displays This is invalid
 }
 
-let age = "25";
+
+let age = Number("25"); //this avoids concatenation by converting string to number
 let totalAge = age + 5;
 console.log("Total Age: " + totalAge);
+
+
+let loginPass;
+if (loginPass); //this is marked as undefined, but since there is an entry here it results in truthy
+console.log("Access Granted");
+
+
+let groupId = 55400;//if these remain number values, the + will erroneously add the values together 
+let policyNumber = 2626801;
+console.log("Member ID: " + String(groupId) + String(policyNumber));//Displays Member ID: 554002626801
